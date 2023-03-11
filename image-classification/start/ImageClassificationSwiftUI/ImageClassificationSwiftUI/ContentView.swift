@@ -13,6 +13,28 @@ struct ContentView: View {
     let photos = ["banana","tiger","bottle"]
     @State private var currentIndex: Int = 0
     
+    // added after putting the ml model
+    @State private var classificationLabel: String = ""
+    // check if ModelNetV2 class exists or not
+    let model = MobileNetV2()
+    
+    private func performImageClassification(){
+        // get current index
+        let currentImageName = photos[currentIndex]
+        
+        guard let image = UIImage(named: currentImageName),
+                let resizedImage = image.resizeTo(size: CGSize(width: 224, height: 224)),
+                let buffer = resizedImage.toBuffer() else{
+            return
+        }
+        
+        let output = try? model.prediction(image: buffer)
+        
+        if let output = output {
+            self.classificationLabel = output.classLabel
+        }
+    }
+    
     var body: some View {
         VStack {
             Image(photos[currentIndex])
@@ -52,13 +74,15 @@ struct ContentView: View {
             
             Button("Classify") {
                 // classify the image here
-                
+                self.performImageClassification()
             }.padding()
             .foregroundColor(Color.white)
             .background(Color.green)
             .cornerRadius(8)
             
-            Text("")
+            Text(classificationLabel)
+                .font(.largeTitle)
+                .padding()
         }
     }
 }
