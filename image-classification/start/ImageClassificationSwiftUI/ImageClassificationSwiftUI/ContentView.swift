@@ -31,7 +31,16 @@ struct ContentView: View {
         let output = try? model.prediction(image: buffer)
         
         if let output = output {
-            self.classificationLabel = output.classLabel
+            // use this code for classifying the image only
+            // self.classificationLabel = output.classLabel
+            
+            
+            // use this code if you want classification with percentage
+            // example: banana = 10%
+            let results = output.classLabelProbs.sorted { $0.1 > $1.1 }
+            
+            let result = results.map{ (key, value) in return "\(key) = \(round(value * 100))% "}.joined(separator: "\n")
+            classificationLabel = result
         }
     }
     
