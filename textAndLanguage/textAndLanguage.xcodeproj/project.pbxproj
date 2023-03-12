@@ -24,6 +24,7 @@
 		3F4DDDE629BDBF5A00E22A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F4DDDE929BDBF5A00E22A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F4DDDEB29BDBF5A00E22A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F4DDDF129BDBFD500E22A23 /* textAndLanguagePlay.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = textAndLanguagePlay.playground; path = ../textAndLanguagePlay.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		3F4DDDD129BDBF5900E22A23 = {
 			isa = PBXGroup;
 			children = (
+				3F4DDDF129BDBFD500E22A23 /* textAndLanguagePlay.playground */,
 				3F4DDDDC29BDBF5900E22A23 /* textAndLanguage */,
 				3F4DDDDB29BDBF5900E22A23 /* Products */,
 			);
